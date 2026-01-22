@@ -1,0 +1,95 @@
+:root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --whatsapp: #25d366;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+        /* Header */
+        header { padding: 60px 20px; text-align: center; background: white; border-bottom: 1px solid #e2e8f0; }
+        header h1 { font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+        header p { color: #64748b; max-width: 500px; margin: 0 auto; }
+
+        /* Roadmap Container */
+        .roadmap { max-width: 800px; margin: 40px auto; position: relative; padding: 20px; }
+
+        /* Linha Central (Escondida no Mobile Pequeno) */
+        .roadmap::before {
+            content: ''; position: absolute; left: 50%; width: 2px; height: 90%;
+            background: #e2e8f0; transform: translateX(-50%); z-index: 1;
+        }
+
+        .step {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; margin-bottom: 40px; position: relative; z-index: 2;
+        }
+
+        .step:nth-child(even) { flex-direction: row-reverse; }
+
+        /* Ícone */
+        .icon-circle {
+            width: 50px; height: 50px; background: var(--accent); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; cursor: pointer; transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Card */
+        .card {
+            width: 42%; background: var(--card); padding: 20px; border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+            cursor: pointer; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .card h3 { font-size: 1rem; margin-bottom: 5px; color: var(--primary); }
+        .card p { font-size: 0.85rem; color: #64748b; }
+
+        /* Secção Professor */
+        .professor-section {
+            max-width: 800px; margin: 60px auto; padding: 40px 20px;
+            background: var(--primary); color: white; border-radius: 20px;
+            text-align: center;
+        }
+         img {
+            width: 100px; height: 100px; border-radius: 50%; background: #334155;
+            margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; border: 3px solid var(--accent);
+        }
+        .professor-section h2 { margin-bottom: 10px; }
+        .professor-section p { font-weight: 300; opacity: 0.9; font-size: 0.95rem; }
+
+        /* Modal */
+        .modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+            display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px;
+        }
+        .modal-content {
+            background: white; padding: 30px; border-radius: 20px; width: 100%; max-width: 400px;
+        }
+        .modal-content li { margin: 12px 0; display: flex; align-items: center; gap: 10px; }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--whatsapp); color: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            z-index: 1000; text-decoration: none; transition: 0.3s;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+
+        /* Responsividade Mobile */
+        @media (max-width: 768px) {
+            .roadmap::before { left: 45px; }
+            .step, .step:nth-child(even) { flex-direction: row; justify-content: flex-start; }
+            .card { width: calc(100% - 80px); margin-left: 20px; }
+            .icon-circle { min-width: 50px; }
+            header h1 { font-size: 1.8rem; }
+        }
+
+        footer { text-align: center; padding: 30px; font-size: 0.8rem; color: #94a3b8; }
